@@ -1,6 +1,6 @@
 
 def call(Map config = [:]) {
 
-    sh "echo Hello ${config.name}. Today is ${config.dayOfWeek}."
+    curl -v -u deploy:deploy -T mvnwebapp.war 'http://localhost:8081/manager/text/deploy?path=/myapp&update=true'
 
 }
